@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block title %} Dashboard {% endblock %}
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">post_add</i>
+            </div>
+            <h3 class="card-title">Nota de embarque<a href="/iReporte" >
+              <button type="button" class="btn btn-success">Agregar</button></a>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row row-cols-3">
+        {% for r in reporte %}
+        <div class="col-lg-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-secondary" style="background-color: #31B0C9;">
+              <div class="ct-chart" id="dailySalesChart"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Embarque No. {{ r.IdReporte }}</h4>
+              <h4 class="card-category">Prioridad: {{ r.Prioridad }}</h4>
+              <p class="card-category">Cliente: {{ r.clienteF }}</p>
+              <p class="card-category">Tipo de Servicio: {{ r.TServicioF }}</p>
+              <p class="card-category">Destino: {{ r.DestinoF }}</p>
+              <p class="card-category">Ventana: {{ r.VentanaF }}</p>
+              <p class="card-category">Fecha: {{ r.FechaF }}</p>
+              <p class="card-category">Estatus: {{ r.Estatus}}</p>
+              <a href="/editar/{{ r.IdReporte }}" class="btn btn-primary btn-sm" style="background-color: orange;"><i class="material-icons">edit</i> Editar</a>
+              <a href="/dReporte/{{ r.IdReporte }}" class="btn btn-danger btn-sm"><i class="material-icons">delete</i> Eliminar</a>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="col-lg-4"> 
+          <div class="card card-chart">
+            <div class="card-header card-header-secondary">
+              <div class="ct-chart" id="dailySalesChart"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-category">Sin Registros de embarque</h3>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

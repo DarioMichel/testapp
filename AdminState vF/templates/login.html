@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Inicio Sesion</title>
+		<script>
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+	
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+		<!-- Meta tag Keywords -->
+		<!-- css files -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" media="all" />
+		<!-- Style-CSS -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-all.css') }}">
+		<!-- Font-Awesome-Icons-CSS -->
+		<!-- //css files -->
+		<!-- web-fonts -->
+		<link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+		<!-- //web-fonts -->
+	</head>
+	
+	<body>
+		<!-- bg effect -->
+		<div id="bg">
+			<canvas></canvas>
+			<canvas></canvas>
+			<canvas></canvas>
+		</div>
+		<!-- //bg effect -->
+	<!-- title -->
+	<h1></h1>
+	<!-- //title -->
+		<!-- content -->
+		<div class="sub-main-w3">
+			<form action="/login" method="post">
+				<h2>Inicia sesion ahora
+				</h2>
+				<div class="form-style-agile">
+					<label>
+						Nombre de Usuario
+					</label>
+					<input placeholder="Ejem.: trabajador1@" name="UsTrabajador" type="text" required="">
+				</div>
+				<div class="form-style-agile">
+					<label>
+						Contraseña
+					</label>
+					<input placeholder="Ejem.: UsEr@123" name="ClaveT" type="password" required="">
+				</div>
+				<!-- checkbox -->
+				<div class="wthree-text">
+					<ul>	
+						<li>
+							<a href="/register">No tienes cuenta? Registrate</a>
+						</li>
+					</ul>
+				</div>
+				<!-- //checkbox -->
+				<input type="submit" value="Iniciar Sesion">
+			</form>
+		</div>
+		<!-- //content -->
+		<!-- Jquery -->
+		<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+		<!-- //Jquery -->
+	
+		<!-- effect js -->
+		<script src="{{ url_for('static', filename='js/canva_moving_effect.js') }}"></script>
+		<!-- //effect js -->
+	</body>
+	</header>
+</html>
+

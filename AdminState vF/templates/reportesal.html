@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block title %}Notas de Reportes {% endblock %}
+{% block content %}
+
+<div class="content" style="padding: 10px;font-size: 13.5px;">
+  <div class="container-fluid">
+    <div class="row-col-3">
+      <table class="table table-sm  table-striped">
+        <thead style="background-color: #31B0C9; color: white;">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Tipo de Servicio</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Ventana</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Prioridad de preparacion</th>
+            <th scope="col">Proceso</th>
+            <th scope="col">Revision</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        {% for r in reporte %}
+        <tbody>
+          <tr>
+            <th scope="row">{{ r.IdReporte }}</th>
+            <td>{{ r.clienteF }}</td>
+            <td>{{ r.TServicioF }}</td>
+            <td>{{ r.DestinoF }}</td>
+            <td>{{ r.VentanaF }}</td>
+            <td>{{ r.FechaF }}</td>
+            <td>{{ r.Estatus}}</td>
+            <td style="text-align: center;">{{ r.Prioridad}}</td>
+            <td>{{ r.Termino}}</td>
+            <td>{{ r.Revision}}</td>
+            <td><a href="/editar1/{{ r.IdReporte }}" class="btn btn-primary btn-sm" style="background-color: orange;">
+                <i class="material-icons">edit</i></a></td>
+            <td><a href="/rExecel/{{ r.IdReporte }}" class="btn btn-primary btn-sm" style="background-color: green;"><i
+                  class="material-icons">print</i> Imprimir</a></td>
+          </tr>
+        </tbody>
+
+        {% else %}
+        <tbody>
+          <tr>
+            <td colspan="10">
+              <div class="navbar-wrapper">
+                <a class="navbar-brand">No hay ningun formato de Embarques</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

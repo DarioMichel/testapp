@@ -1,0 +1,267 @@
+{% extends 'layout.html' %}
+{% block title %} Formulario de reporte {% endblock %}
+{% block content %}
+<div class="content" style="padding: 40px;">
+  <div class="container-fluid">
+    <div class="row-cols-3">
+      <div class="navbar-wrapper"><a href="/sReporte" style="color: rgb(82, 136, 136);">Regresar a inicio</a> </div>
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">Nota de embarque</a>
+      </div>
+      <br>
+      <form action="/iReporte" method="post">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Servicio al cliente</h5> <input type="hidden" name="Termino" placeholder=""
+              class="form-control form-control-lg "> <input type="hidden" name="Revision" placeholder=""
+              class="form-control form-control-lg ">
+            <input name="SerClienteF" type="text" class="form-control" placeholder="Nombre Trabajador...">
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Prioridad de preparacion</h5>
+            <select id="inputAddress2" class="form-control" name="Prioridad">
+              <option selected></option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Estatus</h5>
+            <select id="inputAddress2" class="form-control" name="Estatus">
+              <option selected></option>
+              <option>Verde</option>
+              <option>Amarillo</option>
+              <option>Rojo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Cliente</h5>
+            <select id="inputState" class="form-control" name="clienteF">
+              <option selected></option>
+              <option>3M</option>
+              <option>Agilent</option>
+              <option>Allergan</option>
+              <option>AstraZeneca</option>
+              <option>Bayer</option>
+              <option>Cardinal Health</option>
+              <option>Chopo</option>
+              <option>Eisai</option>
+              <option>Mundi pharma</option>
+              <option>Pfizer</option>
+              <option>Roche</option>
+              <option>Siemens</option>
+              <option>Terumo</option>
+              <option>Besins</option>
+              <option>Boehringer</option>
+              <option>Celltrion</option>
+              <option>Chiesi</option>
+              <option>Convatec</option>
+              <option>Degasa</option>
+              <option>Falcon</option>
+              <option>Fresenius</option>
+              <option>GE</option>
+              <option>Medtronic</option>
+              <option>Mindray</option>
+              <option>Novo Nordisk</option>
+              <option>Olympus</option>
+              <option>Qiangen</option>
+              <option>Sanfer</option>
+              <option>Sophia</option>
+              <option>Sysmex</option>
+              <option>Théa</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Tipo de servicio</h5>
+            <select name="TServicioF" id="inputState" class="form-control" type="text">
+              <option selected></option>
+              <option>A-Mensajería Express</option>
+              <option>B-Distribuidor Foraneo (Intercentro)</option>
+              <option>C-Personalizado Seco</option>
+              <option>D-Personalizado Refrigerado</option>
+              <option>E-Ruta Local Seca</option>
+              <option>F-Ruta Local Refrigerada</option>
+              <option>G-Cliente Recoge</option>
+              <option>H-Personalizado Seco con Custodia</option>
+              <option>I-Personalizado Refrigerado con Custodia</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Transportista</h5>
+            <select name="Transportista" id="inputState" class="form-control" type="text">
+              <option selected></option>
+              <option>Andrade</option>
+              <option>Apasa</option>
+              <option>BM Sistemas</option>
+              <option>Cliente Recoge</option>
+              <option>DEFAULT</option>
+              <option>DHL</option>
+              <option>Estafeta</option>
+              <option>Intercentro</option>
+              <option>Medistik</option>
+              <option>Orgaz</option>
+              <option>Personalizadas</option>
+              <option>Local</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Fecha Embarque</h5>
+            <input name="FechaF" type="date" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Destino</h5>
+            <select name="DestinoF" id="inputState" class="form-control" type="text">
+              <option selected></option>
+              <option>ACAPULCO</option>
+              <option> ACAPULCO DE JUAREZ</option>
+              <option>ACAPULCO,GUERRERO</option>
+              <option>AGUASCALIENTES</option>
+              <option>AGUASCALIENTES AGS</option>
+              <option>Alcaldia Azcapotzalco</option>
+              <option>ALVARO OBREGON</option>
+              <option>Alvaro Obregón</option>
+              <option>ALVARO OBREGON CDMX</option>
+              <option>ALVARO OBREGON CIUDAD DE MEXIC</option>
+              <option>APODACA</option>
+              <option>ATIZAPAN DE ZARAGOZA</option>
+              <option>AZCAPOTZALCO</option>
+              <option>AZCAPOTZALCO CIUDAD DE MEXICO</option>
+              <option>BAJA CALIFORNIA</option>
+              <option>BAJA CALIFORNIA NORTE</option>
+              <option>BAJA CALIFORNIA SUR</option>
+              <option>BC</option>
+              <option>BENITO JUAREZ</option>
+              <option>Benito Juárez</option>
+              <option>BENITO JUAREZ CIUDAD DE MEXIC</option>
+              <option>BOCA DEL RIO</option>
+              <option>BOCA DEL RIO VERACRUZ</option>
+              <option>CABO SAN LUCAS</option>
+              <option>CAMPECHE</option>
+              <option>CAMPECHE, CAMPECHE</option>
+              <option>CANCUN</option>
+              <option>Cancún</option>
+              <option>CD DE MEXICO</option>
+              <option>CD JUAREZ</option>
+              <option>CD. CUAUHTEMOC</option>
+              <option>CD. JUAREZ</option>
+              <option>CD. JUAREZ, CHIHUAHUA</option>
+              <option>CD. OBREGON SON.</option>
+              <option>Cdmx</option>
+              <option>CENTENARIO</option>
+              <option>CENTRO</option>
+              <option>CHALCO</option>
+              <option>CHIHUAHUA CHIHUAHUA</option>
+              <option>COLIMA</option>
+              <option>COLONIA CENTRO CIVICO</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Ventana de salida (hora)</h5>
+            <select name="VentanaF" class="form-control" type="text">
+              <option selected></option>
+              <option>6:00 am</option>
+              <option>7:00 am</option>
+              <option>8:00 am</option>
+              <option>11:00 am</option>
+              <option>18:00 pm</option>
+            </select>
+          </div>
+        </div> <br>
+        <div class="input-group input-group-md mb-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Comentarios</span>
+          </div>
+          <input type="text" name="Comentarios" placeholder="Ingrese un comentario aqui" class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <br>
+        <div class="form-row">
+          <div class="form-group col-sm-12">
+            <table class="table table-sm">
+              <thead style="background-color: #31B0C9; color: white;">
+                <tr>
+                  <th scope="col">Contenedor</th>
+                  <th scope="col">Articulo</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Ubicación</th>
+                  <th scope="col">Lote</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">UM</th>
+                  <th scope="col">Caducidad</th>
+                  <th scope="col">Temperatura</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input name="Contenedor" type="text" class="form-control" placeholder="Contenedor"></td>
+                  <td><input name="Articulo" placeholder="Articulo" class="form-control" type="text"></td>
+                  <td><input name="Descripcion" placeholder="Descripcion" class="form-control" type="text"></td>
+                  <td><input name="Ubicacion" type="text" class="form-control" placeholder="Ubicacion"></td>
+                  <td><input name="Lote" type="text" class="form-control" placeholder="Lote"></td>
+                  <td><input name="Qty" type="text" class="form-control" placeholder="Qty"></td>
+                  <td><input name="UM" type="text" class="form-control" placeholder="UM"></td>
+                  <td><input name="Caducidad" type="date" class="form-control" placeholder="Caducidad"></td>
+                  <td><select name="Temperatura" class="form-control" type="text">
+                      <option selected></option>
+                      <option>Refri</option>
+                      <option>Ambiente</option>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+
+        {% for idc in Idcontenido %}
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <table class="table table-sm">
+              <tbody>
+                <tr>
+
+
+                  <td><input name="Contenedor" type="text" class="form-control" placeholder="Dato vacio"></td>
+                  <td><input name="Articulo" type="text" class="form-control" placeholder="Dato vacio"></td>
+                  <td><input name="Descripcion" type="text" class="form-control" placeholder="Dato vacio"></td>
+                  <td><input name="Ubicacion" type="text" class="form-control" placeholder="Dato vacio"></td>
+                  <td><input name="Lote" type="text" class="form-control" placeholder="Dato vacio">
+                  </td>
+                  <td><input name="Qty" type="text" class="form-control" placeholder="Dato vacio">
+                  </td>
+                  <td><input name="UM" type="text" class="form-control" placeholder="Dato vacio">
+                  </td>
+                  <td><input name="Caducidad" type="text" class="form-control" placeholder="Dato vacio"></td>
+                  <td><input name="Temperatura" type="text" class="form-control" placeholder="Dato vacio">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% else %}
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <table class="table table-sm">
+              <tbody>
+                <tr>
+                  <h5>Sin registros de articulos</h5>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Guardar o actualizar nota</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'layout.html' %}
+{% block title %} Actualizar reporte {% endblock %}
+{% block content %}
+<div class="content" style="padding: 40px;">
+  <div class="container-fluid">
+    <div class="row-cols-3">
+      <div class="navbar-wrapper"><a href="/sReporte" style="color: rgb(82, 136, 136);">Regresar a inicio</a> </div>
+      <div class="navbar-wrapper">{% for r in r %}
+        <a class="navbar-brand" href="javascript:;">Nota de embarque: {{ r.IdReporte }}</a>
+      </div>
+      <br>
+
+      <form action="/sformulario5" method="post">
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <input type="hidden" name="IdReporte" value="{{ r.IdReporte }}" class="form-control form-control-lg ">
+          </div>
+          <div class="form-group col-md-3">
+            <h5 class="title">Servicio al cliente</h5>
+            <input name="SerClienteF" value="{{ r.SerClienteF }}" type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-3">
+            <h5 class="title">Prioridad de preparacion</h4>
+              <input name="Prioridad" value="{{ r.Prioridad }}" type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-2">
+            <h5 class="title">Estatus</h5>
+            <input name="Estatus" value="{{ r.Estatus }}" type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-2">
+            <h5 class="title">Proceso</h5>
+            <select id="inputAddress2" name="Termino" value="{{ r.Termino }}" class="form-control">
+              <option selected>{{ r.Termino }}</option>
+              <option></option>
+              <option>Iniciado</option>
+              <option>Terminado a tiempo</option>
+              <option>Terminado tarde</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <h5 class="title">Error</h5>
+            <select id="inputAddress2" name="Revision" value="{{ r.Revision }}" class="form-control">
+              <option selected>{{ r.Revision }}</option>
+              <option></option>
+              <option>Error en delivery</option>
+              <option>Diferencia de inventario</option>
+              <option>Error de empaque</option>
+              <option>Error en cantidad / Multiplo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Cliente</h5>
+            <input name="clienteF" value="{{ r.clienteF }}" type="text" class="form-control">
+
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <h4 class="title">Servicio</h4>
+            <input name="TServicioF" value="{{ r.TServicioF }}" type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputCity" class="title">Fecha Embarque</label>
+            <input name="FechaF" value="{{ r.FechaF }}" type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Transportista</h5>
+            <input name="Transportista" value="{{ r.Transportista }}" type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Destino</h5>
+            <input name="DestinoF" value="{{ r.DestinoF }}" type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Ventana de salida (hora)</h5>
+            <input name="VentanaF" value="{{ r.VentanaF }}" type="text" class="form-control">
+          </div>
+        </div><br>
+        <div class="input-group input-group-md mb-12" style="padding: 10  px;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Comentarios</span>
+          </div>
+          <input type="text" name="Comentarios" value="{{ r.Comentarios }}" placeholder="Comentario vacio"
+            class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Guardar cambios de reporte</button>
+      </form>
+      <br>
+      {% endfor %}
+      <form action="/sformulario" method="post">
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <table class="table table-sm">
+              <thead style="background-color: #31B0C9; color: white;">
+                <tr>
+                  <th scope="col">Contenedor</th>
+                  <th scope="col">Articulo</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Ubicación</th>
+                  <th scope="col">Lote</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">UM</th>
+                  <th scope="col">Caducidad</th>
+                  <th scope="col">Temperatura</th>
+                </tr>
+              </thead>
+              <!--tbody>
+                <tr>
+                  <td><input name="Contenedor" type="text" class="form-control" placeholder="Contenedor"></td>
+                  <td><input name="Articulo" placeholder="Articulo" class="form-control" type="text"></td>
+                  <td><input name="Descripcion" placeholder="Descripcion" class="form-control" type="text"></td>
+                  <td><input name="Ubicacion" type="text" class="form-control" placeholder="Ubicacion"></td>
+                  <td><input name="Lote" type="text" class="form-control" placeholder="Lote"></td>
+                  <td><input name="Qty" type="text" class="form-control" placeholder="Qty"></td>
+                  <td><input name="UM" type="text" class="form-control" placeholder="UM"></td>
+                  <td><input name="Caducidad" type="date" class="form-control" placeholder="Caducidad"></td>
+                  <td><select name="Temperatura" class="form-control" type="text">
+                      <option selected>Escoge una opcion ...</option>
+                      <option>Refri</option>
+                      <option>Ambiente</option>
+                  </td>
+                </tr>
+              </tbody-->
+              {% for c in c %}
+              <tbody>
+                <tr>
+                  <td><input name="Contenedor" value="{{ c.Contenedor }}" type="text" class="form-control"></td>
+                  <td><input name="Articulo" value="{{ c.Articulo }}" type="text" class="form-control"></td>
+                  <td><input name="Descripcion" value="{{ c.Descripcion }}" type="text" class="form-control"></td>
+                  <td><input name="Ubicacion" value="{{ c.Ubicacion }}" type="text" class="form-control"></td>
+                  <td><input name="Lote" value="{{ c.Lote }}" type="text" class="form-control">
+                  </td>
+                  <td><input name="Qty" value="{{ c.Qty }}" type="text" class="form-control">
+                  </td>
+                  <td><input name="UM" value="{{ c.UM }}" type="text" class="form-control">
+                  </td>
+                  <td><input name="Caducidad" value="{{ c.Caducidad }}" type="text" class="form-control"></td>
+                  <td><input name="Temperatura" value="{{ c.Temperatura }}" type="text" class="form-control">
+                  </td>
+                </tr>
+              </tbody>
+              {% else %}
+              <tr>
+                <td>
+                  <h3 class="card-category">Sin Registros de embarque</h3</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--button type="submit" class="btn btn-primary">Agregar articulo</button-->
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

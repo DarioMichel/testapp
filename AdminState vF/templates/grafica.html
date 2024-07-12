@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+{% block title %} Grafica de reportes {% endblock %}
+{% block content %}
+<div class="content" style="padding: 40px;">
+    <div class="container-fluid">
+        <div class="row-cols">
+            <div class="navbar-wrapper">
+                <a href="/sReporte" style="color: rgb(82, 136, 136);">Regresar a inicio</a>
+            </div>
+            <div class="chart-container" style="position: relative; height:450px; width: 450px; margin-left: 200px;">
+            <canvas id="myChart" width="250" height="250"></canvas>
+            <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Error en delivery', 'Diferencia de inventario', 'Error de empaque', 'Error en cantidad / Multiplo'],
+                        datasets: [{
+                            label: 'Errores',
+                            data: [2, 1, 1],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                                'rgba(255, 159, 64, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                    
+                });
+            </script>
+            </div>
+            <br><br><br><br><br>
+            <div class="chart-container" style="position: relative; height:450px; width: 450px;margin-left: 200px;">
+                <canvas id="myCharte" width="250" height="250"></canvas>
+                <script>
+                    var ctx = document.getElementById('myCharte').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Iniciado', 'Terminado a tiempo', 'Terminado tarde'],
+                            datasets: [{
+                                label: 'Terminado',
+                                data: [2, 1, 1],
+                                
+                                backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                                'rgba(255, 159, 64, 0.8)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                            
+                        }
+                        
+                    });
+                </script>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

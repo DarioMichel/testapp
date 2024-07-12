@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+{% block title %} Actualizar reporte {% endblock %}
+{% block content %}
+<div class="content" style="padding: 40px;">
+  <div class="container-fluid">
+    <div class="row-cols-3">
+      <div class="navbar-wrapper"><a href="/sReporte" style="color: rgb(82, 136, 136);">Regresar a inicio</a> </div>
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">Nota de embarque</a>
+      </div>
+      <br>
+      {% for r in r %}
+      <form action="/uReporte" method="post">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Servicio al cliente</h5>
+            <input name="SerClienteF" value="{{ r.SerClienteF }}" type="text" class="form-control"
+              placeholder="Dato vacio">
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Prioridad de preparacion</h4>
+              <input name="Prioridad" value="{{ r.Prioridad }}" type="text" class="form-control"
+                placeholder="Dato vacio">
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Estatus</h5>
+            <input name="Estatus" value="{{ r.Estatus }}" type="text" class="form-control" placeholder="Dato vacio">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Cliente</h5>
+            <input name="clienteF" value="{{ r.clienteF }}" type="text" class="form-control" placeholder="Dato vacio">
+
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <h4 class="title">Servicio</h4>
+            <input name="TServicioF" value="{{ r.TServicioF }}" type="text" class="form-control"
+              placeholder="Dato vacio">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputCity" class="title">Fecha Embarque</label>
+            <input name="FechaF" value="{{ r.FechaF }}" type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <h5 class="title">Transportista</h5>
+            <input name="Transportista" value="{{ r.Transportista }}" type="text" class="form-control"
+              placeholder="Dato vacio">
+          </div>
+          <div class="form-group col-md-4">
+            <h5 class="title">Destino</h5>
+            <input name="DestinoF" value="{{ r.DestinoF }}" type="text" class="form-control" placeholder="Dato vacio">
+          </div>
+          <div class="form-group col-md-4">
+            <h4 class="title">Ventana</h4>
+            <input name="VentanaF" value="{{ r.VentanaF }}" type="text" class="form-control" placeholder="Dato vacio">
+          </div>
+        </div>
+        <div class="input-group input-group-md mb-12" style="padding: 10  px;">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Comentarios</span>
+          </div>
+          <input type="text" name="Comentarios" value="{{ r.Comentarios }}" placeholder="Comentario vacio"
+            class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        {% endfor %}
+        <div class="form-row">
+          <div class="form-group col-lg-12">
+            <table class="table table-sm">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Contenedor</th>
+                  <th scope="col">Articulo</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Ubicación</th>
+                  <th scope="col">Lote</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">UM</th>
+                  <th scope="col">Caducidad</th>
+                  <th scope="col">Temperatura</th>
+                </tr>
+              </thead>
+              <tbody> 
+                {% for c in c %}
+                <tr>
+                  
+                  <td><input name="Contenedor" value="{{ c.Contenedor }}" type="text" class="form-control"
+                      placeholder="Dato vacio"></td>
+                  <td><input name="Articulo" value="{{ c.Articulo }}" type="text" class="form-control"
+                      placeholder="Dato vacio"></td>
+                  <td><input name="Descripcion" value="{{ c.Descripcion }}" type="text" class="form-control"
+                      placeholder="Dato vacio"></td>
+                  <td><input name="Ubicacion" value="{{ c.Ubicacion }}" type="text" class="form-control"
+                      placeholder="Dato vacio"></td>
+                  <td><input name="Lote" value="{{ c.Lote }}" type="text" class="form-control" placeholder="Dato vacio">
+                  </td>
+                  <td><input name="Qty" value="{{ c.Qty }}" type="text" class="form-control" placeholder="Dato vacio">
+                  </td>
+                  <td><input name="UM" value="{{ c.UM }}" type="text" class="form-control" placeholder="Dato vacio">
+                  </td>
+                  <td><input name="Caducidad" value="{{ c.Caducidad }}" type="text" class="form-control"
+                      placeholder="Dato vacio"></td>
+                  <td><input name="Temperatura" value="{{ c.Temperatura }}" type="text" class="form-control"
+                      placeholder="Dato vacio">
+                  </td>
+                </tr>
+                {% else %}
+                <tr>
+                  <td><h3 class="card-category">Sin Registros de embarque</h3</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Registar</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
